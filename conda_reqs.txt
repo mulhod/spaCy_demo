@@ -1,0 +1,4 @@
+cymem=1.30
+jupyter=1.0.0
+murmurhash=0.24
+spacy=0.99
