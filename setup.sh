@@ -24,8 +24,7 @@ source activate spacy
 conda install --yes --file conda_reqs.txt
 if [[ $? -gt 0 ]]; then
     
-    echo "\"conda install --yes --file conda_requirements.txt\" failed. " \
-         "Exiting.\n"
+    echo "\"conda install --yes --file conda_reqs.txt\" failed. Exiting.\n"
     cd ${ORIG_DIR}
     exit 1
     
