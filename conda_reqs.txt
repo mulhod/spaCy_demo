@@ -1,4 +1,5 @@
 cython=0.23.4
 jupyter=1.0.0
 murmurhash=0.24
+pandas=0.17.0
 spacy=0.99
