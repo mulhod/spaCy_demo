@@ -49,7 +49,8 @@ fi
 
 # Download model data for spaCy
 echo "Downloading model data for spaCy package...\n"
-python3.4 -m spacy.en.download all
+echo "(Force download so that it definitely gets it right...)\n"
+python3.4 -m spacy.en.download all --force
 
 # Compile Cython modules
 echo "Compiling Cython extensions...\n"
