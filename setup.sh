@@ -2,8 +2,6 @@
 
 # Usage: ./setup.sh
 
-set -eu
-
 ORIG_DIR=$(pwd)
 THIS_DIR=$(dirname $(readlink -f $0))
 cd ${THIS_DIR}
@@ -21,9 +19,6 @@ conda config --add channels https://conda.anaconda.org/spacy
 conda create --yes -n spacy python=3.4
 # And now install all of the packages we need
 source activate spacy
-# Install cymem separately and without specifying a version number since
-# there's some issue with specifying the correct package version
-conda install cymem
 conda install --yes --file conda_reqs.txt
 if [[ $? -gt 0 ]]; then
     
@@ -32,6 +27,11 @@ if [[ $? -gt 0 ]]; then
     exit 1
     
 fi
+# Reinstall cymem separately and without specifying a version number since
+# there's some issue with specifying the correct package version and it
+# gets installed anyway with the other packages in conda_reqs.txt (but the
+# wrong version of the package)
+conda install cymem
 echo "Created \"spacy\" environment successfully! To use environment, run" \
      "\"source activate spacy\". To get out of the environment, run" \
      "\"source deactivate\".\n"
