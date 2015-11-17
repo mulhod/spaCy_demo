@@ -21,6 +21,9 @@ conda config --add channels https://conda.anaconda.org/spacy
 conda create --yes -n spacy python=3.4
 # And now install all of the packages we need
 source activate spacy
+# Install cymem separately and without specifying a version number since
+# there's some issue with specifying the correct package version
+conda install cymem
 conda install --yes --file conda_reqs.txt
 if [[ $? -gt 0 ]]; then
     
