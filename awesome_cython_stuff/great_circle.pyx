@@ -1,7 +1,7 @@
 import math
 
 def great_circle(float lon1,float lat1,float lon2,float lat2):
-    cdef float radius = 3956.0 
+    cdef float radius = 3956.0
     cdef float pi = 3.14159265
     cdef float x = pi/180.0
     cdef float a,b,theta,c
