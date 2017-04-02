@@ -3,7 +3,11 @@
 # Usage: ./setup.sh
 
 ORIG_DIR=$(pwd)
-THIS_DIR=$(dirname $(readlink -f $0))
+if [[ $OSTYPE == "darwin16.0" ]]; then
+    THIS_DIR=$(python -c "from __future__ import print_function; import os.path; print(os.path.dirname(os.path.realpath(\"$0\")))")
+else
+    THIS_DIR=$(dirname $(readlink -f $0))
+fi
 cd ${THIS_DIR}
 
 echo "Make sure that conda (miniconda) is installed before trying to set up" \
@@ -50,11 +54,11 @@ fi
 # Download model data for spaCy
 echo "Downloading model data for spaCy package...\n"
 echo "(Force download so that it definitely gets it right...)\n"
-python3.4 -m spacy.en.download all --force
+python -m spacy.en.download all --force
 
 # Compile Cython modules
 echo "Compiling Cython extensions...\n"
-python3.4 setup.py develop
+python setup.py develop
 echo "Package installed!"
 echo "If changes are made to the Cython extensions, run the following to" \
      "re-compile the extensions for use in the various command-line" \

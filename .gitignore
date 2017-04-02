@@ -1,8 +1,8 @@
 .ipynb_checkpoints
-
-.ipynb_checkpoints/*
 *.pyc
 __pycache__
-__pycache__/*
 */*.c
 */*.so
+awesome_cython_stuff/hello.html
+build/
+spaCy_and_Cython_demo.egg-info/
